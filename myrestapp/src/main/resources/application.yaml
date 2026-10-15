@@ -1,0 +1,45 @@
+
+spring:
+  application:
+    name: myrestapp
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      connect-timeout: 2s
+
+  cache:
+    type: redis
+    
+   
+
+server:
+  port: 9000
+
+eureka:
+  client:
+    enabled: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+openai:
+  base-url: https://api.openai.com
+  api-key: ${OPENAI_API_KEY}
+  model: gpt-5.6-luna
